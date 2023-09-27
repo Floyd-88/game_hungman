@@ -1,27 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+<HomeGame/>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+<script lang="ts" setup>
+import HomeGame from './pages/HomeGame.vue'
+import {onMounted } from 'vue';
+import {useStore} from 'vuex'
 
-export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-});
+const store = useStore();
+
+// const letter = computed( {
+//   get: () => store.getters.getLetter,
+//   set: (value) => store.commit('setLetter', value)  
+// })
+
+onMounted(() => {
+  store.dispatch('createNewWord')
+})
+
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="sass" scoped>
+@import './assets/styles/main'
 </style>
