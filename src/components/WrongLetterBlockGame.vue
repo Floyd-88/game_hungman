@@ -1,22 +1,26 @@
 <template>
  <div class="title_wrong_letter">Неверные буквы:</div>
  <div class="wrapper_wrong_letters">
-    <div class="wrong_letters">b,</div>
-    <div class="wrong_letters">v,</div>
-    <div class="wrong_letters">g,</div>
-    <div class="wrong_letters">k,</div>
-    <div class="wrong_letters">o,</div>
-    <div class="wrong_letters">f,</div>
-    <div class="wrong_letters">u,</div>
-    <div class="wrong_letters">p,</div>
-    <div class="wrong_letters">r</div>
-
-
+    <div class="wrong_letters" v-for="(letter, index) in wrongLetters" :key="letter">
+        {{ index === wrongLetters.length - 1 ? letter : `${letter},` + '&nbsp;' }}
+    </div>
  </div>
 </template>
 
 <script lang="ts" setup>
+import {computed} from 'vue'
+import {useStore} from 'vuex'
 
+const store = useStore();
+
+const wrongLetters = computed(() => { 
+    return store.getters.getLetterArray.filter((x: string) => !store.getters.getWord.includes(x))
+    // return store.getters.getWrongLetters.filter((item: string, index: number) => {
+    //     const double = store.getters.getWrongLetters.indexOf(item) === index
+    //     console.log(double)
+    //     return double
+    // });
+})
 </script>
 
 <style lang="sass" scoped>

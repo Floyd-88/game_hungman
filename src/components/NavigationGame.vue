@@ -1,6 +1,6 @@
 <template>
   <div class="new_game">
-    <p class="nav_item">
+    <p class="nav_item" @click="restartGame()">
       Новая игра
     </p>
   </div>
@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-
+import {restartGame} from '../composables/RestartGame'
 
 </script>
 

@@ -2,29 +2,17 @@
     <div class="task_text">
         Отгадай имя:
     </div>
-    <div class="wrapper_word">
-        <div class="wrapper_letter_is_word">
-            <p class="letter_is_word">a</p>
-        </div>
-        <div class="wrapper_letter_is_word">
-            <p class="letter_is_word"></p>
-        </div>
-        <div class="wrapper_letter_is_word">
-            <p class="letter_is_word">f</p>
-        </div>
-        <div class="wrapper_letter_is_word">
-            <p class="letter_is_word">y</p>
-        </div>
-        <div class="wrapper_letter_is_word">
-            <p class="letter_is_word">o</p>
-        </div>
-        <div class="wrapper_letter_is_word">
-            <p class="letter_is_word">m</p>
+    <div class="wrapper_word" 
+        >
+        <div class="wrapper_letter_is_word" v-for="(letter, index) in store.getters.getWord" :key="index">
+            <p class="letter_is_word">{{ store.getters.getRightLetters.includes(letter) ? letter : '' }}</p>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
+import {useStore} from 'vuex'
+const store = useStore();
 
 </script>
 

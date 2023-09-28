@@ -15,12 +15,12 @@
     <div class="wrong_letter">
         <WrongLetterBlockGame/>
     </div>
-    <div class="double" v-if="false">
+    <div>
         <WarningDouble/>
     </div>
  </div>
- <div v-if="false">
-    <EndGameModal/>
+ <div v-if="store.getters.getLetterArray.length > 0">
+    <EndGameModal :isWin="isWin" :isLose="isLose"/>
  </div>
 </template>
 
@@ -33,6 +33,23 @@ import WrongLetterBlockGame from '../components/WrongLetterBlockGame.vue'
 import WarningDouble from '../components/WarningDouble.vue'
 import EndGameModal from '../modals/EndGameModal.vue'
 
+import { defineProps} from 'vue'
+import { useStore } from 'vuex'
+
+const store = useStore();
+
+defineProps({
+    isLose: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
+    isWin: {
+        type: Boolean,
+        required: true,
+        default: false
+    }
+})
 
 </script>
 
@@ -70,6 +87,9 @@ import EndGameModal from '../modals/EndGameModal.vue'
     justify-content: center
     margin-top: 0px
     height: 100px
+
+.wrong_letter
+    margin-top: 20px
 
 .double
     display: flex
