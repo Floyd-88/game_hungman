@@ -70,7 +70,6 @@ defineProps({
     align-items: center
     width: 400px
     height: 200px
-    background-size: cover
 
 .end_text
     padding: 15px
@@ -79,17 +78,21 @@ defineProps({
     font-weight: 100
 
 .win_text
-    color: dodgerblue
+    color: black
 
 .loser
     margin: 0
     color: black
 
 .bg_win
-    background-image: url(http://localhost:8080/img/win.48c6ddf6.jpg)
+    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.2)), url(http://localhost:8080/img/win.48c6ddf6.jpg)
+    background-size: cover
+    background-position: center
 
 .bg_lose
-    background-image: url(/src/assets/img/loser.jpg)
+    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.2)), url(/src/assets/img/loser.jpg)
+    background-size: cover
+    background-position: center
 
 .restart_game 
     font-size: 14px
@@ -102,7 +105,6 @@ defineProps({
     margin:20px auto
     text-align:center
     padding: 1px 5px
-    color: #717171
     -webkit-border-radius: 4px
     -moz-border-radius: 4px
     border-radius: 4px

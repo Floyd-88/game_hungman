@@ -15,9 +15,12 @@
 <style lang="sass" scoped>
 @import '../assets/styles/main'
 .title
-    font-family: fantasy
+    font-family: 'Pacifico-Regular'
     font-weight: 100
-    font-size: 20px
+    font-size: 30px
+    h1
+        margin: 0px
+        padding: 0px
 .logo
     display: flex
 
