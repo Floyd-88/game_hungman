@@ -1,9 +1,19 @@
 <template>
-  <HomeGame :isWin="isWin" :isLose="isLose"/>
+   <div class="header">
+    <HeaderGame/>
+ </div>
+ <div class="nav">
+    <NavigationGame/>
+ </div>
+ <RouterView :isWin="isWin" :isLose="isLose"/>
+  <!-- <HomeGame /> -->
 </template>
 
 <script lang="ts" setup>
-import HomeGame from './pages/HomeGame.vue'
+import HeaderGame from './components/HeaderGame.vue'
+import NavigationGame from './components/NavigationGame.vue'
+import { RouterView } from 'vue-router'
+// import HomeGame from './pages/HomeGame.vue'
 import { onMounted, computed } from 'vue';
 import { useStore } from 'vuex'
 
